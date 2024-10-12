@@ -1,11 +1,12 @@
 import React from 'react'
+import classes from './RootLayout.module.css'
 import { NavLink } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
 export function RootLayout() {
   return (
-    <div>
-      <header>
+    <div className={classes.wrapper}>
+      <header className={classes.header}>
         <nav>
           <ul>
             <li>
@@ -17,10 +18,10 @@ export function RootLayout() {
           </ul>
         </nav>
       </header>
-      <main>
+      <main className={classes.main}>
         <Outlet />
       </main>
-      <footer>2024</footer>
+      <footer className={classes.footer}>2024</footer>
     </div>
   )
 }
