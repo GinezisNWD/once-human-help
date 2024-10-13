@@ -25,7 +25,7 @@ export function Navbar() {
     <nav>
       <ul className={classes.menu__list}>
         {pages.map((page) => (
-          <li className={classes.menu__item}>
+          <li key={page.page} className={classes.menu__item}>
             <NavLink to={page.to} className={setAcive}>{page.page}</NavLink>
           </li>
 
