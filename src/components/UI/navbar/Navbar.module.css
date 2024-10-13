@@ -1,0 +1,21 @@
+.menu {}
+
+.menu__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  display: flex;
+  gap: 20px;
+}
+
+.menu__item {}
+
+.menu__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu__link_active {
+  color: orange;
+}

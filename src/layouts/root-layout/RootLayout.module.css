@@ -6,10 +6,27 @@
   flex-direction: column;
 }
 
-.header {}
+.header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+
+  color: #cfcfcf;
+  background-color: #2a2a2a;
+}
 
 .main {
   flex: 1 0 auto;
+
+  color: #2a2a2a;
+  background-color: #cfcfcf;
 }
 
-.footer {}
+.footer {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+
+  color: #cfcfcf;
+  background-color: #2a2a2a;
+}
