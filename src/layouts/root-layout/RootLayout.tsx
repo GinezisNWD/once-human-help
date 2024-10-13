@@ -4,10 +4,25 @@ import { Outlet } from 'react-router-dom'
 import { Navbar } from '../../components/UI/navbar/Navbar'
 
 export function RootLayout() {
+
+  const pages = [
+    {
+      to: '/',
+      page: 'Home',
+    },
+    {
+      to: 'simulation',
+      page: 'Simulation',
+    },
+    {
+      to: '/about',
+      page: 'About',
+    }]
+
   return (
     <div className={classes.wrapper}>
       <header className={classes.header}>
-        <Navbar />
+        <Navbar pages={pages} />
       </header>
       <main className={classes.main}>
         <Outlet />

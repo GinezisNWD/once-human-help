@@ -10,6 +10,10 @@ export function Navbar() {
       page: 'Home',
     },
     {
+      to: 'simulation',
+      page: 'Simulation',
+    },
+    {
       to: '/about',
       page: 'About',
     }]
