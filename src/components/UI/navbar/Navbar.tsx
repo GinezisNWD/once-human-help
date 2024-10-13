@@ -2,21 +2,16 @@ import React from 'react'
 import classes from './Navbar.module.css'
 import { NavLink, NavLinkRenderProps } from 'react-router-dom'
 
-export function Navbar() {
+interface IPage {
+  to: string;
+  page: string;
+}
 
-  const pages = [
-    {
-      to: '/',
-      page: 'Home',
-    },
-    {
-      to: 'simulation',
-      page: 'Simulation',
-    },
-    {
-      to: '/about',
-      page: 'About',
-    }]
+interface NavbarProps {
+  pages: IPage[]
+}
+
+export function Navbar({ pages }: NavbarProps) {
 
   const setAcive = ({ isActive }: NavLinkRenderProps): string => {
     return isActive ?
