@@ -1,9 +1,17 @@
 export interface IWeaponStats {
+  id: number;
+  weakspotHitRate: number;
+  name: string;
   basicDamage: number;
+  fireRate: number;
+  magazineCapacity: number;
+  critRate: number;
   critDamage: number;
+  weaponDmgBonus: number;
   weakspotDamage: number;
   normalEnemiesDamage: number;
-  demageResistance: number;
+  damageResistance: number;
+  simulations: string[]
 }
 
 
