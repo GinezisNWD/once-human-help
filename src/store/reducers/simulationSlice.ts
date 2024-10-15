@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IWeaponStats, IElementalStats } from "../../models/IStats"
+import { IWeaponStats, IElementalStats, IWeaponSimulation } from "../../models/IStats"
 
 interface SimulationState {
   stats: {
@@ -23,7 +23,7 @@ export const simulationSlice = createSlice({
     addMps7Stats(state, action: PayloadAction<IWeaponStats>) {
       state.stats.mps7.push(action.payload)
     },
-    addMps7Simulation(state, action: PayloadAction<{ id: number, value: string }>,) {
+    addMps7Simulation(state, action: PayloadAction<{ id: number, value: IWeaponSimulation }>,) {
       const item = state.stats.mps7.find(elem => elem.id === action.payload.id)
       item?.simulations.push(action.payload.value)
     },

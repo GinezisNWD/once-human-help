@@ -31,15 +31,15 @@ export function WeaponDpsCard({ stats }: WeaponDpsCardProps) {
       <div className={classes.card__simulation}>
         <button onClick={() => addSimulationHandler()} >Start simulation</button>
 
-        {stats.simulations.map((elem, index) => <p key={index}>{elem}</p>)}
+        {stats.simulations.map((elem, index) => <p key={index}>{elem.totalDamage}</p>)}
       </div>
 
     </div>
   )
 
   function addSimulationHandler() {
-    const dps = getMps7Dps(stats)
+    const simulation = getMps7Dps(stats)
 
-    dispatch(addMps7Simulation({ id: stats.id, value: `${dps.totalDamage}` }))
+    dispatch(addMps7Simulation({ id: stats.id, value: simulation }))
   }
 }

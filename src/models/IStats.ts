@@ -1,3 +1,12 @@
+export interface IWeaponSimulation {
+  totalDamage: number;
+  detailedDpsCheck: {
+    damage: number;
+    isCrit: boolean;
+    isWeakspot: boolean;
+  }[];
+}
+
 export interface IWeaponStats {
   id: number;
   weakspotHitRate: number;
@@ -11,7 +20,7 @@ export interface IWeaponStats {
   weakspotDamage: number;
   normalEnemiesDamage: number;
   damageResistance: number;
-  simulations: string[]
+  simulations: IWeaponSimulation[]
 }
 
 
