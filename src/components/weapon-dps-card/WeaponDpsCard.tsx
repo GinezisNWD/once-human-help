@@ -1,16 +1,18 @@
 import React from 'react'
 import classes from './WeaponDpsCard.module.css'
-import { IWeaponStats } from '../../models/IStats'
-import { simulationSlice } from '../../store/reducers/SimulationSlice';
+import { combinedStats, ISimulationReport } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux';
 import { getMps7Dps } from '../../utils/simulation';
+import { UnknownAction } from '@reduxjs/toolkit';
 
-interface WeaponDpsCardProps {
-  stats: IWeaponStats
+interface WeaponDpsCardProps<T extends combinedStats> {
+  stats: T;
+  addSimulationAction: (payload: { id: number; value: ISimulationReport }) => UnknownAction;
+  getDps: <T extends combinedStats>(stats: T) => ISimulationReport
 }
 
-export function WeaponDpsCard({ stats }: WeaponDpsCardProps) {
-  const { addMps7Simulation } = simulationSlice.actions
+export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAction }: WeaponDpsCardProps<T>) {
+
   const dispatch = useAppDispatch()
 
   return (
@@ -26,6 +28,11 @@ export function WeaponDpsCard({ stats }: WeaponDpsCardProps) {
         <p>Weakspot DMG : {stats.weakspotDamage}</p>
         <p>Weapon DMG Bonus : {stats.weaponDmgBonus}</p>
         <p>DMG Bonus against Common Enemies : {stats.normalEnemiesDamage}</p>
+
+        {'psiIntensity' in stats ? <p>Psi Intensity : {stats.psiIntensity}</p> : null}
+        {'elementalDamage' in stats ? <p>Elemental DMG : {stats.elementalDamage}</p> : null}
+        {'statusDamage' in stats ? <p>Elemental DMG : {stats.statusDamage}</p> : null}
+
       </div>
 
       <div className={classes.card__simulation}>
@@ -40,6 +47,6 @@ export function WeaponDpsCard({ stats }: WeaponDpsCardProps) {
   function addSimulationHandler() {
     const simulation = getMps7Dps(stats)
 
-    dispatch(addMps7Simulation({ id: stats.id, value: simulation }))
+    dispatch(addSimulationAction({ id: stats.id, value: simulation }))
   }
 }

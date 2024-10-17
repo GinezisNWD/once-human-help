@@ -5,9 +5,13 @@
   align-items: flex-start;
 }
 
-.form__row {}
+.form__row {
+  display: flex;
+}
 
-.form__column {}
+.form__column {
+  padding: 0 10px;
+}
 
 .form__label {
   display: flex;
