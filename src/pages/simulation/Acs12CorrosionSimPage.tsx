@@ -4,10 +4,11 @@ import { IAcs12CorrosionStats } from '../../models/IStats'
 import { simulationSlice } from '../../store/reducers/SimulationSlice'
 import { WeaponDpsCard } from '../../components/weapon-dps-card/WeaponDpsCard'
 import { ElementalDpsForm } from '../../components/elemental-dps-form/ElementalDpsForm'
+import { getAcs12CorrosionDps } from '../../utils/simulation'
 
 export function Acs12CorrosionSimPage() {
   const { acs12corrosion } = useAppSelector(state => state.simulationReducer.stats)
-  const { addAcs12CorrosionStats } = simulationSlice.actions
+  const { addAcs12CorrosionStats, addAcs12CorrosionSimulation } = simulationSlice.actions
 
   const initValues: IAcs12CorrosionStats = {
     id: Date.now(),
@@ -30,6 +31,9 @@ export function Acs12CorrosionSimPage() {
     // указан на пухе
     damageFactor: 15,
 
+    powerSurgeCritRate: 15,
+    powerSurgeCritDamage: 0,
+
     simulations: [],
   }
 
@@ -39,7 +43,12 @@ export function Acs12CorrosionSimPage() {
       <ElementalDpsForm initValues={initValues} addStats={addAcs12CorrosionStats} />
 
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {acs12corrosion.map(stats => <WeaponDpsCard stats={stats} key={stats.id} />)}
+        {acs12corrosion.map(stats => <WeaponDpsCard
+          stats={stats}
+          addSimulationAction={addAcs12CorrosionSimulation}
+          getDps={getAcs12CorrosionDps}
+          key={stats.id}
+        />)}
       </div>
     </div>
   )
