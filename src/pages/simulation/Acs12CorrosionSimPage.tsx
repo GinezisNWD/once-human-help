@@ -31,6 +31,7 @@ export function Acs12CorrosionSimPage() {
     // указан на пухе
     damageFactor: 15,
 
+    triggerChance: 70,
     powerSurgeCritRate: 15,
     powerSurgeCritDamage: 0,
 
