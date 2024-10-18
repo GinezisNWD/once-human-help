@@ -2,16 +2,15 @@ import React from 'react'
 import classes from './WeaponDpsCard.module.css'
 import { combinedStats, ISimulationReport } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux';
-import { getMps7Dps } from '../../utils/simulation';
 import { UnknownAction } from '@reduxjs/toolkit';
 
 interface WeaponDpsCardProps<T extends combinedStats> {
   stats: T;
   addSimulationAction: (payload: { id: number; value: ISimulationReport }) => UnknownAction;
-  getDps: <T extends combinedStats>(stats: T) => ISimulationReport
+  getDps: (stats: T) => ISimulationReport
 }
 
-export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAction }: WeaponDpsCardProps<T>) {
+export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAction, getDps }: WeaponDpsCardProps<T>) {
 
   const dispatch = useAppDispatch()
 
@@ -45,7 +44,7 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
   )
 
   function addSimulationHandler() {
-    const simulation = getMps7Dps(stats)
+    const simulation = getDps(stats)
 
     dispatch(addSimulationAction({ id: stats.id, value: simulation }))
   }
