@@ -1,12 +1,25 @@
+export interface basicShot {
+  damage: number,
+  isCrit: boolean;
+  isWeakspot: boolean;
+}
+
+export interface advancedShot {
+  damage: number;
+  additionalArray?: basicShot[];
+  isCrit: boolean;
+  isWeakspot: boolean;
+  isKeywordTriggered?: boolean;
+  keywordDamage?: number | null;
+  isKeywordCrit?: boolean;
+  isKeywordWeakspot?: boolean;
+}
+
 export interface ISimulationReport {
   totalDamage: number;
   weaponDamage: number;
-  elementalDamage: number | null;
-  detailedDpsCheck: {
-    damage: number;
-    isCrit: boolean;
-    isWeakspot: boolean;
-  }[];
+  elementalDamage?: number;
+  detailedDpsCheck: advancedShot[];
 }
 
 export interface IWeaponStats {
@@ -28,8 +41,8 @@ export interface IWeaponStats {
 export interface IElementalStats extends IWeaponStats {
   psiIntensity: number;
   psiMultiplier: number;
-  elementalDamage: number;
   statusDamage: number;
+  elementalDamage: number;
 }
 
 export interface IAcs12CorrosionStats extends IElementalStats {
