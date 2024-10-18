@@ -22,7 +22,7 @@ export function Acs12CorrosionSimPage() {
     weakspotDamage: 15,
     weaponDmgBonus: 0,
     normalEnemiesDamage: 0,
-    damageResistance: 100,
+    damageResistance: 95,
 
     psiIntensity: 121,
     psiMultiplier: 50,
@@ -33,7 +33,7 @@ export function Acs12CorrosionSimPage() {
 
     triggerChance: 70,
     powerSurgeCritRate: 15,
-    powerSurgeCritDamage: 0,
+    powerSurgeCritDamage: 15,
 
     simulations: [],
   }
