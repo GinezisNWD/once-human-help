@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import classes from './WeaponDpsCard.module.css'
 import { combinedStats, ISimulationReport } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux';

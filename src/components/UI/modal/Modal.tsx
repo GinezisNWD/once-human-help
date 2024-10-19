@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import classees from './Modal.module.css';
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {

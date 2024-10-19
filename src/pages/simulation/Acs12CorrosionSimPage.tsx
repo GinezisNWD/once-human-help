@@ -1,10 +1,9 @@
-import React from 'react'
 import { useAppSelector } from '../../hooks/redux'
 import { IAcs12CorrosionStats } from '../../models/IStats'
-import { simulationSlice } from '../../store/reducers/SimulationSlice'
 import { WeaponDpsCard } from '../../components/weapon-dps-card/WeaponDpsCard'
 import { ElementalDpsForm } from '../../components/elemental-dps-form/ElementalDpsForm'
 import { getAcs12CorrosionDps } from '../../utils/simulation'
+import { simulationSlice } from '../../store/reducers/simulationSlice'
 
 export function Acs12CorrosionSimPage() {
   const { acs12corrosion } = useAppSelector(state => state.simulationReducer.stats)

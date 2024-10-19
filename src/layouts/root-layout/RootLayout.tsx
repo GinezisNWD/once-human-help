@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from './RootLayout.module.css'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from '../../components/UI/navbar/Navbar'
