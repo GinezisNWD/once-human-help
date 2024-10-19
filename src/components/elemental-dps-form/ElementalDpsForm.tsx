@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import classes from './ElementalDpsForm.module.css'
 import { IAcs12CorrosionStats, IElementalStats } from '../../models/IStats'
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';

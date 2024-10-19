@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import classes from './WeaponDpsForm.module.css'
 import { IWeaponStats } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux'

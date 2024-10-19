@@ -1,7 +1,6 @@
-import React from 'react'
 import { IWeaponStats } from '../../models/IStats'
 import { useAppSelector } from '../../hooks/redux'
-import { simulationSlice } from '../../store/reducers/SimulationSlice'
+import { simulationSlice } from '../../store/reducers/simulationSlice'
 import { WeaponDpsCard } from '../../components/weapon-dps-card/WeaponDpsCard'
 import { WeaponDpsForm } from '../../components/weapon-dps-form/WeaponDpsForm'
 import { getMps7Dps } from '../../utils/simulation'

@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from './Navbar.module.css'
 import { NavLink, NavLinkRenderProps } from 'react-router-dom'
 
