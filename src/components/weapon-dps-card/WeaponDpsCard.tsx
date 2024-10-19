@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './WeaponDpsCard.module.css'
 import { combinedStats, ISimulationReport } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux';
 import { UnknownAction } from '@reduxjs/toolkit';
+import { Modal } from '../UI/modal/Modal';
+import { BasicSimulationReport } from '../basic-simulation-report/BasicSimulationReport';
+import { AdvancedSimulationReport } from '../advanced-simulation-report/AdvancedSimulationReport';
 
 interface WeaponDpsCardProps<T extends combinedStats> {
   stats: T;
@@ -12,10 +15,14 @@ interface WeaponDpsCardProps<T extends combinedStats> {
 
 export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAction, getDps }: WeaponDpsCardProps<T>) {
 
+  const [modal, setModal] = useState(false)
   const dispatch = useAppDispatch()
 
   return (
     <div className={classes.card}>
+      <Modal visible={modal} setVisible={setModal}>
+        <AdvancedSimulationReport reports={stats.simulations} />
+      </Modal>
 
       <div className={classes.card__info}>
         <h3>{stats.name}</h3>
@@ -36,8 +43,9 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
 
       <div className={classes.card__simulation}>
         <button onClick={() => addSimulationHandler()} >Start simulation</button>
+        <button onClick={() => setModal(true)} >Detailed report</button>
 
-        {stats.simulations.map((elem, index) => <p key={index}>{elem.totalDamage}</p>)}
+        {stats.simulations.map((elem, index) => <BasicSimulationReport report={elem} key={index} />)}
       </div>
 
     </div>
@@ -48,4 +56,6 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
 
     dispatch(addSimulationAction({ id: stats.id, value: simulation }))
   }
+
+
 }
