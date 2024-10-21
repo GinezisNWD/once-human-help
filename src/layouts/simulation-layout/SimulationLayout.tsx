@@ -21,7 +21,10 @@ export function SimulationLayout() {
         <Navbar pages={pages} />
       </div>
 
-      <Outlet />
+      <div className="container">
+
+        <Outlet />
+      </div>
     </div>
   )
 }

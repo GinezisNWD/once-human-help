@@ -20,7 +20,7 @@ export function Navbar({ pages }: NavbarProps) {
   }
 
   return (
-    <nav>
+    <nav className={classes.menu}>
       <ul className={classes.menu__list}>
         {pages.map((page) => (
           <li key={page.page} className={classes.menu__item}>

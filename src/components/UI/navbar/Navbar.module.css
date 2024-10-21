@@ -1,4 +1,6 @@
-.menu {}
+.menu {
+  display: flex;
+}
 
 .menu__list {
   margin: 0;

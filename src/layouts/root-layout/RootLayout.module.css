@@ -11,10 +11,12 @@
 
 .header {
   padding: 20px 0;
+  border-bottom: 1px solid #4b4b4b
+}
+
+.header__wrapper {
   display: flex;
   justify-content: center;
-
-  border-bottom: 1px solid #4b4b4b
 }
 
 .main {
@@ -23,8 +25,10 @@
 
 .footer {
   padding: 20px 0;
+  background-color: var(--light-bg-color);
+}
+
+.footer__wrapper {
   display: flex;
   justify-content: center;
-
-  background-color: var(--light-bg-color);
 }
