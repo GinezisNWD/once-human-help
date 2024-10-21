@@ -3,6 +3,7 @@ import classes from './ElementalDpsForm.module.css'
 import { IAcs12CorrosionStats, IElementalStats } from '../../models/IStats'
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { useAppDispatch } from '../../hooks/redux'
+import { PrimaryButton } from '../UI/primary-button/PrimaryButton';
 
 interface ElementalDpsFormProps {
   initValues: IElementalStats;
@@ -75,8 +76,8 @@ export function ElementalDpsForm({
       </div>
 
       <div className={classes.form__buttons}>
-        <button type='submit'>Add build</button>
-        <button type='reset'>Clear Form</button>
+        <PrimaryButton type='submit'>Add build</PrimaryButton>
+        <PrimaryButton type='reset'>Clear Form</PrimaryButton>
       </div>
     </form>
   )

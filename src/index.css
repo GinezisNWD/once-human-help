@@ -10,6 +10,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --main-bg-color: #222222;
+  --light-bg-color: #2a2a2a;
+  /* for cards bg */
+  --light-bg-color2: #2c2c2c;
+  /* for buttons and input bg */
+  --light-bg-color3: #363636;
+
+  /* for buttons text */
+  --light-grey-color: #c9c9c9;
+  /* for button hover */
+  --light-grey-color2: #444444;
+
+
+  /* light text color */
+  --light-text-color: #ffffff;
+  /* text color */
+  --grey-color: #cfcfcf;
+  /* Sublink text color */
+  --grey-color2: #ababab;
+
+  --grey-color3: #b0b0b0;
+
+  --contrast: #ffa500;
+
+}
+
 body {
   min-width: 320px;
   height: 100vh;

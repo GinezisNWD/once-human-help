@@ -13,9 +13,9 @@ export function AdvancedSimulationReport({ reports }: AdvancedSimulationReportPr
               Total: {report.totalDamage} Weapon Damage: {report.weaponDamage} Elemental Damage: {report.elementalDamage}
             </div>
 
-            <div style={{ display: 'flex', border: '1px solid black', padding: '2px' }}>
+            <div style={{ display: 'flex' }}>
               {report.detailedDpsCheck.map((elem, index) => (
-                <div style={{ border: '1px solid black', padding: '2px' }}>
+                <div>
                   <div>{index + 1}</div>
                   <div>{elem.damage}</div>
                   <div style={{ color: 'blue' }}> {elem.keywordDamage || ''}</div>

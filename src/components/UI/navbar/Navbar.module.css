@@ -17,5 +17,5 @@
 }
 
 .menu__link_active {
-  color: orange;
+  color: var(--contrast);
 }

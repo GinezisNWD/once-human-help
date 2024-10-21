@@ -4,6 +4,7 @@ import { WeaponDpsCard } from '../../components/weapon-dps-card/WeaponDpsCard'
 import { ElementalDpsForm } from '../../components/elemental-dps-form/ElementalDpsForm'
 import { getAcs12CorrosionDps } from '../../utils/simulation'
 import { simulationSlice } from '../../store/reducers/simulationSlice'
+import { WeaponDpsCardList } from '../../components/weapon-dps-card-list/WeaponDpsCardList'
 
 export function Acs12CorrosionSimPage() {
   const { acs12corrosion } = useAppSelector(state => state.simulationReducer.stats)
@@ -42,14 +43,14 @@ export function Acs12CorrosionSimPage() {
       <h2>Acs12CorrosionSimPage</h2>
       <ElementalDpsForm initValues={initValues} addStats={addAcs12CorrosionStats} />
 
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <WeaponDpsCardList>
         {acs12corrosion.map(stats => <WeaponDpsCard
           stats={stats}
           addSimulationAction={addAcs12CorrosionSimulation}
           getDps={getAcs12CorrosionDps}
           key={stats.id}
         />)}
-      </div>
+      </WeaponDpsCardList>
     </div>
   )
 }

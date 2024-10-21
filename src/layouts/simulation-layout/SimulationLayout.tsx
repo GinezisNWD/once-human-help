@@ -1,3 +1,4 @@
+import classes from './SimulationLayout.module.css'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from '../../components/UI/navbar/Navbar'
 
@@ -14,8 +15,12 @@ export function SimulationLayout() {
   ]
 
   return (
-    <div>
-      <Navbar pages={pages} />
+    <div className={classes.simulation}>
+      <div className={classes.simulation__header}>
+
+        <Navbar pages={pages} />
+      </div>
+
       <Outlet />
     </div>
   )

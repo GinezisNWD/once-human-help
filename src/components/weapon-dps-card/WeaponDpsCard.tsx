@@ -6,6 +6,7 @@ import { UnknownAction } from '@reduxjs/toolkit';
 import { Modal } from '../UI/modal/Modal';
 import { BasicSimulationReport } from '../basic-simulation-report/BasicSimulationReport';
 import { AdvancedSimulationReport } from '../advanced-simulation-report/AdvancedSimulationReport';
+import { PrimaryButton } from '../UI/primary-button/PrimaryButton';
 
 interface WeaponDpsCardProps<T extends combinedStats> {
   stats: T;
@@ -41,10 +42,12 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
 
       </div>
 
-      <div className={classes.card__simulation}>
-        <button onClick={() => addSimulationHandler()} >Start simulation</button>
-        <button onClick={() => setModal(true)} >Detailed report</button>
+      <div className={classes.card__buttons}>
+        <PrimaryButton onClick={() => addSimulationHandler()} >Start simulation</PrimaryButton>
+        <PrimaryButton onClick={() => setModal(true)} >Detailed report</PrimaryButton>
+      </div>
 
+      <div className={classes.card__simulations}>
         {stats.simulations.map((elem, index) => <BasicSimulationReport report={elem} key={index} />)}
       </div>
 

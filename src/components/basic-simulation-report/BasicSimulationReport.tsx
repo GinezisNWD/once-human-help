@@ -1,3 +1,4 @@
+import classes from './BasicSimulationReport.module.css'
 import { ISimulationReport } from '../../models/IStats'
 
 interface BasicSimulationReportProps {
@@ -6,7 +7,7 @@ interface BasicSimulationReportProps {
 
 export function BasicSimulationReport({ report }: BasicSimulationReportProps) {
   return (
-    <div style={{ border: '1px solid black', padding: ' 0 5px' }}>
+    <div className={classes.report}>
       <p>total: {report.totalDamage}</p>
       <p>weapon damage: {report.weaponDamage}</p>
       {report.elementalDamage ? <p>elemental damage: {report.elementalDamage}</p> : null}

@@ -3,6 +3,7 @@ import classes from './WeaponDpsForm.module.css'
 import { IWeaponStats } from '../../models/IStats'
 import { useAppDispatch } from '../../hooks/redux'
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { PrimaryButton } from '../UI/primary-button/PrimaryButton'
 
 interface WeaponDpsFormProps {
   initValues: IWeaponStats
@@ -60,8 +61,8 @@ export function WeaponDpsForm({
       </div>
 
       <div className={classes.form__buttons}>
-        <button type='submit'>Add build</button>
-        <button type='reset'>Clear Form</button>
+        <PrimaryButton type='submit'>Add build</PrimaryButton>
+        <PrimaryButton type='reset'>Clear Form</PrimaryButton>
       </div>
     </form>
   )
