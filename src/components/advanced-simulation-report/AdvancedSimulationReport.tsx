@@ -6,16 +6,16 @@ export function AdvancedSimulationReport({ reports }: AdvancedSimulationReportPr
 
   return (
     <div>
-      {reports.map(report => {
+      {reports.map((report, index) => {
         return (
-          <div>
+          <div key={index}>
             <div>
               Total: {report.totalDamage} Weapon Damage: {report.weaponDamage} Elemental Damage: {report.elementalDamage}
             </div>
 
             <div style={{ display: 'flex' }}>
               {report.detailedDpsCheck.map((elem, index) => (
-                <div>
+                <div key={index}>
                   <div>{index + 1}</div>
                   <div>{elem.damage}</div>
                   <div style={{ color: 'blue' }}> {elem.keywordDamage || ''}</div>
