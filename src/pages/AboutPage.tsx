@@ -1,5 +1,11 @@
 export function AboutPage() {
   return (
-    <h2>About</h2>
+    <div className="about">
+      <div className="container">
+        <div className="about__wrapper">
+          <h2>About Page</h2>
+        </div>
+      </div>
+    </div>
   )
 }
