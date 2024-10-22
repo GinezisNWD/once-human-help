@@ -31,7 +31,7 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
         <p>Fire Rate : {stats.fireRate}</p>
         <p>Magazine Capacity : {stats.magazineCapacity}</p>
         <p>Crit Rate : {stats.critRate}</p>
-        <p>Crit  DMG : {stats.basicDamage}</p>
+        <p>Crit  DMG : {stats.critDamage}</p>
         <p>Weakspot DMG : {stats.weakspotDamage}</p>
         <p>Weapon DMG Bonus : {stats.weaponDmgBonus}</p>
         <p>DMG Bonus against<br />Common Enemies : {stats.normalEnemiesDamage}</p>
