@@ -1,0 +1,77 @@
+.reports {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: var(--main-bg-color);
+}
+
+.reports::-webkit-scrollbar {
+  width: 5px;
+  height: 95%;
+}
+
+.reports::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.reports::-webkit-scrollbar-thumb {
+  background-color: var(--contrast);
+  border-radius: 6px;
+}
+
+.reports__report {
+  margin: 0 0 15px 0;
+  padding: 15px;
+  border: 1px solid var(--contrast);
+}
+
+.reports__basic {
+  display: flex;
+  gap: 15px;
+  margin: 0 0 15px 0;
+}
+
+.reports__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reports__shot {
+  width: 60px;
+  margin: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid #4b4b4b;
+}
+
+.reports__shotNumber {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.reports__damage {
+  margin: 0;
+  color: var(--light-text-color);
+}
+
+.reports__damage_elemental {
+  width: 100%;
+  text-align: center;
+  color: #61AFA2;
+
+  border-top: 1px solid #4b4b4b;
+}
+
+.reports__damage_weakspot {
+  color: #CD406D;
+}
+
+
+.reports__damage_crit {
+  color: #F2B36E;
+}

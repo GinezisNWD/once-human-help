@@ -7,7 +7,6 @@
 
 .card::-webkit-scrollbar {
   width: 5px;
-  /* ширина скроллбара */
 }
 
 .card::-webkit-scrollbar-track {

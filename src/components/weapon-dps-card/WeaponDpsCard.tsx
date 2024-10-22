@@ -34,11 +34,11 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
         <p>Crit  DMG : {stats.basicDamage}</p>
         <p>Weakspot DMG : {stats.weakspotDamage}</p>
         <p>Weapon DMG Bonus : {stats.weaponDmgBonus}</p>
-        <p>DMG Bonus against Common Enemies : {stats.normalEnemiesDamage}</p>
+        <p>DMG Bonus against<br />Common Enemies : {stats.normalEnemiesDamage}</p>
 
         {'psiIntensity' in stats ? <p>Psi Intensity : {stats.psiIntensity}</p> : null}
         {'elementalDamage' in stats ? <p>Elemental DMG : {stats.elementalDamage}</p> : null}
-        {'statusDamage' in stats ? <p>Elemental DMG : {stats.statusDamage}</p> : null}
+        {'statusDamage' in stats ? <p>Status DMG : {stats.statusDamage}</p> : null}
 
       </div>
 

@@ -8,9 +8,9 @@ interface BasicSimulationReportProps {
 export function BasicSimulationReport({ report }: BasicSimulationReportProps) {
   return (
     <div className={classes.report}>
-      <p>total: {report.totalDamage}</p>
-      <p>weapon damage: {report.weaponDamage}</p>
-      {report.elementalDamage ? <p>elemental damage: {report.elementalDamage}</p> : null}
+      <p>Total: {report.totalDamage}</p>
+      <p>Weapon damage: {report.weaponDamage}</p>
+      {report.elementalDamage ? <p>Elemental damage: {report.elementalDamage}</p> : null}
     </div>
   )
 }
