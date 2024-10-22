@@ -20,12 +20,23 @@ export function RootLayout() {
   return (
     <div className={classes.wrapper}>
       <header className={classes.header}>
-        <Navbar pages={pages} />
+        <div className="container">
+          <div className={classes.header__wrapper}>
+            <Navbar pages={pages} />
+          </div>
+        </div>
       </header>
       <main className={classes.main}>
         <Outlet />
       </main>
-      <footer className={classes.footer}>2024</footer>
+      <footer className={classes.footer}>
+        <div className="container">
+          <div className={classes.footer__wrapper}>
+
+            2024
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

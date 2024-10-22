@@ -1,16 +1,21 @@
 .form {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .form__row {
+  margin: 0 0 15px 0;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 5%;
 }
 
 .form__column {
-  padding: 0 10px;
+  flex: 0 0 20%;
 }
 
 .form__label {
@@ -20,13 +25,25 @@
 
 .form__buttons {
   display: flex;
-  gap: 20px;
   align-self: center;
+  gap: 20px;
 }
 
 
 .form__input {
+  color: var(--light-text-color);
+  background-color: var(--light-bg-color3);
+
+  border: none;
+  outline: 1px solid var(--light-bg-color3);
+
+
+
   -moz-appearance: textfield;
+}
+
+.form__input:focus {
+  outline-color: var(--contrast);
 }
 
 .form__input::-webkit-outer-spin-button,

@@ -6,6 +6,7 @@ import { UnknownAction } from '@reduxjs/toolkit';
 import { Modal } from '../UI/modal/Modal';
 import { BasicSimulationReport } from '../basic-simulation-report/BasicSimulationReport';
 import { AdvancedSimulationReport } from '../advanced-simulation-report/AdvancedSimulationReport';
+import { PrimaryButton } from '../UI/primary-button/PrimaryButton';
 
 interface WeaponDpsCardProps<T extends combinedStats> {
   stats: T;
@@ -33,18 +34,20 @@ export function WeaponDpsCard<T extends combinedStats>({ stats, addSimulationAct
         <p>Crit  DMG : {stats.basicDamage}</p>
         <p>Weakspot DMG : {stats.weakspotDamage}</p>
         <p>Weapon DMG Bonus : {stats.weaponDmgBonus}</p>
-        <p>DMG Bonus against Common Enemies : {stats.normalEnemiesDamage}</p>
+        <p>DMG Bonus against<br />Common Enemies : {stats.normalEnemiesDamage}</p>
 
         {'psiIntensity' in stats ? <p>Psi Intensity : {stats.psiIntensity}</p> : null}
         {'elementalDamage' in stats ? <p>Elemental DMG : {stats.elementalDamage}</p> : null}
-        {'statusDamage' in stats ? <p>Elemental DMG : {stats.statusDamage}</p> : null}
+        {'statusDamage' in stats ? <p>Status DMG : {stats.statusDamage}</p> : null}
 
       </div>
 
-      <div className={classes.card__simulation}>
-        <button onClick={() => addSimulationHandler()} >Start simulation</button>
-        <button onClick={() => setModal(true)} >Detailed report</button>
+      <div className={classes.card__buttons}>
+        <PrimaryButton onClick={() => addSimulationHandler()} >Start simulation</PrimaryButton>
+        <PrimaryButton onClick={() => setModal(true)} >Detailed report</PrimaryButton>
+      </div>
 
+      <div className={classes.card__simulations}>
         {stats.simulations.map((elem, index) => <BasicSimulationReport report={elem} key={index} />)}
       </div>
 

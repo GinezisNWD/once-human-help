@@ -1,4 +1,6 @@
-.menu {}
+.menu {
+  display: flex;
+}
 
 .menu__list {
   margin: 0;
@@ -17,5 +19,5 @@
 }
 
 .menu__link_active {
-  color: orange;
+  color: var(--contrast);
 }

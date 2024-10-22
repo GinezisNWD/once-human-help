@@ -2,13 +2,13 @@ import { IWeaponStats } from '../../models/IStats'
 import { useAppSelector } from '../../hooks/redux'
 import { simulationSlice } from '../../store/reducers/simulationSlice'
 import { WeaponDpsCard } from '../../components/weapon-dps-card/WeaponDpsCard'
-import { WeaponDpsForm } from '../../components/weapon-dps-form/WeaponDpsForm'
 import { getMps7Dps } from '../../utils/simulation'
+import { WeaponDpsCardList } from '../../components/weapon-dps-card-list/WeaponDpsCardList'
+import { CombinedDpsForm } from '../../components/combined-dps-form/CombinedDpsForm'
 
 export function Mps7SimPage() {
   const { mps7 } = useAppSelector(state => state.simulationReducer.stats)
   const { addMps7Stats, addMps7Simulation } = simulationSlice.actions
-
 
   const initValues: IWeaponStats = {
     id: Date.now(),
@@ -29,16 +29,16 @@ export function Mps7SimPage() {
   return (
     <div>
       <h2>Mps7SimPage</h2>
-      <WeaponDpsForm initValues={initValues} addStats={addMps7Stats} />
+      <CombinedDpsForm isElemental={false} initValues={initValues} addStats={addMps7Stats} />
 
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <WeaponDpsCardList>
         {mps7.map(stats => <WeaponDpsCard
           stats={stats}
           addSimulationAction={addMps7Simulation}
           getDps={getMps7Dps}
           key={stats.id}
         />)}
-      </div>
+      </WeaponDpsCardList>
     </div>
   )
 

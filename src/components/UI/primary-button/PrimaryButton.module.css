@@ -1,0 +1,21 @@
+.primaryButton {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--light-grey-color);
+  background: var(--light-bg-color3);
+  border: none;
+  border-radius: 5px;
+}
+
+.primaryButton:hover {
+  cursor: pointer;
+  background: var(--light-grey-color2);
+}
+
+.primaryButton:active {
+  cursor: pointer;
+  color: var(--contrast);
+}

@@ -1,4 +1,32 @@
 .card {
-  padding: 5px 10px;
-  border: 1px solid #000;
+  max-height: 554px;
+  overflow-y: auto;
+  padding: 0px 10px 10px 10px;
+  background: var(--light-bg-color2);
+}
+
+.card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.card::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: var(--contrast);
+  border-radius: 6px;
+}
+
+.card__buttons {
+  margin: 0 0 10px 0;
+  display: flex;
+  gap: 20px;
+}
+
+
+.card__simulations {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
 }
