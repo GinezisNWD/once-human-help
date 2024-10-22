@@ -1,21 +1,17 @@
 import { useState } from 'react'
-import classes from './WeaponDpsForm.module.css'
-import { IWeaponStats } from '../../models/IStats'
+import classes from './CombinedDpsForm.module.css'
+import { combinedStats } from '../../models/IStats'
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { useAppDispatch } from '../../hooks/redux'
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
-import { PrimaryButton } from '../UI/primary-button/PrimaryButton'
+import { PrimaryButton } from '../UI/primary-button/PrimaryButton';
 
-interface WeaponDpsFormProps {
-  initValues: IWeaponStats
-  addStats: ActionCreatorWithPayload<IWeaponStats>
+interface CombinedDpsFormProps<T> {
+  isElemental: boolean;
+  initValues: T;
+  addStats: ActionCreatorWithPayload<T>;
 }
 
-export function WeaponDpsForm({
-  initValues,
-  addStats
-}: WeaponDpsFormProps) {
-
-
+export function CombinedDpsForm<T extends combinedStats>({ isElemental, initValues, addStats }: CombinedDpsFormProps<T>) {
   const [values, setValues] = useState(initValues)
   const dispatch = useAppDispatch()
 
@@ -54,10 +50,28 @@ export function WeaponDpsForm({
           <label className={classes.form__label}>Weapom DMG Bonus
             <input className={classes.form__input} type="number" value={values.weaponDmgBonus} onChange={(event) => changeHandler(event, `weaponDmgBonus`)} />
           </label>
-          <label className={classes.form__label}>DMG Bonus against Common Enemies
+          <label className={classes.form__label}>DMG Bonus against<br />Common Enemies
             <input className={classes.form__input} type="number" value={values.normalEnemiesDamage} onChange={(event) => changeHandler(event, `normalEnemiesDamage`)} />
           </label>
         </div>
+
+        {isElemental && 'psiIntensity' in values ?
+          <div className={classes.form__column}>
+            <label className={classes.form__label}>Psi Intesity
+              <input className={classes.form__input} type="number" value={values.psiIntensity} onChange={(event) => changeHandler(event, `psiIntensity`)} />
+            </label>
+            <label className={classes.form__label}>Elemental DMG
+              <input className={classes.form__input} type="number" value={values.elementalDamage} onChange={(event) => changeHandler(event, `elementalDamage`)} />
+            </label>
+            <label className={classes.form__label}>Status DMG
+              <input className={classes.form__input} type="number" value={values.statusDamage} onChange={(event) => changeHandler(event, `statusDamage`)} />
+            </label>
+
+          </div>
+          :
+          null}
+
+
       </div>
 
       <div className={classes.form__buttons}>

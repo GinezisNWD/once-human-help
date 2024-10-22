@@ -21,17 +21,12 @@
   gap: 20px;
 }
 
-
 .form__input {
-  /* padding: 0; */
-
   color: var(--light-text-color);
   background-color: var(--light-bg-color3);
 
   border: none;
   outline: 1px solid var(--light-bg-color3);
-
-
 
   -moz-appearance: textfield;
 }
