@@ -7,6 +7,8 @@ import { RootLayout } from './layouts/root-layout/RootLayout'
 import { SimulationLayout } from './layouts/simulation-layout/SimulationLayout'
 import { Mps7SimPage } from './pages/simulation/Mps7SimPage'
 import { Acs12CorrosionSimPage } from './pages/simulation/Acs12CorrosionSimPage'
+import { Mps7OuterSpaceSimPage } from './pages/simulation/Mps7OuterSpaceSimPage'
+import { SocrOutsiderSimPage } from './pages/simulation/SocrOutsiderSimPage'
 
 function App() {
 
@@ -16,13 +18,10 @@ function App() {
         <Route index element={<HomePage />} />
 
         <Route path='simulation' element={<SimulationLayout />}>
-
-          <Route path='about' element={<AboutPage />} />
-
           <Route path='mps7' element={<Mps7SimPage />} />
           <Route path='asc12corrosion' element={<Acs12CorrosionSimPage />} />
-
-
+          <Route path='mps7outerspace' element={<Mps7OuterSpaceSimPage />} />
+          <Route path='socroutsider' element={<SocrOutsiderSimPage />} />
         </Route>
 
 

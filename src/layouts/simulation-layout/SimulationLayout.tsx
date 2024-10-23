@@ -10,7 +10,15 @@ export function SimulationLayout() {
     },
     {
       to: 'asc12corrosion',
-      page: 'acs12-corrosion',
+      page: 'ACS12 - CORROSION',
+    },
+    {
+      to: 'mps7outerspace',
+      page: 'MPS7 - OUTER SPACE',
+    },
+    {
+      to: 'socroutsider',
+      page: 'SOCR - OUTSIDER',
     },
   ]
 
