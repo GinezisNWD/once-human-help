@@ -8,7 +8,7 @@ import { WeaponDpsCardList } from '../../components/weapon-dps-card-list/WeaponD
 
 export function Acs12CorrosionSimPage() {
   const { acs12corrosion } = useAppSelector(state => state.simulationReducer.stats)
-  const { addAcs12CorrosionStats, addAcs12CorrosionSimulation } = simulationSlice.actions
+  const { addAcs12CorrosionStats, addAcs12CorrosionSimulation, removeAcs12Corrosionstats } = simulationSlice.actions
 
   const initValues: IAcs12CorrosionStats = {
     id: Date.now(),
@@ -47,6 +47,7 @@ export function Acs12CorrosionSimPage() {
         {acs12corrosion.map(stats => <WeaponDpsCard
           stats={stats}
           addSimulationAction={addAcs12CorrosionSimulation}
+          removeBuildAction={removeAcs12Corrosionstats}
           getDps={getAcs12CorrosionDps}
           key={stats.id}
         />)}

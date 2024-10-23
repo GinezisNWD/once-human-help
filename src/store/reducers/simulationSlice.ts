@@ -23,12 +23,18 @@ export const simulationSlice = createSlice({
     addMps7Stats(state, action: PayloadAction<IWeaponStats>) {
       state.stats.mps7.push(action.payload)
     },
+    removeMps7stats(state, action: PayloadAction<number>) {
+      state.stats.mps7 = state.stats.mps7.filter((elem) => elem.id !== action.payload)
+    },
     addMps7Simulation(state, action: PayloadAction<{ id: number, value: ISimulationReport }>,) {
       const item = state.stats.mps7.find(elem => elem.id === action.payload.id)
       item?.simulations.push(action.payload.value)
     },
     addAcs12CorrosionStats(state, action: PayloadAction<IAcs12CorrosionStats>) {
       state.stats.acs12corrosion.push(action.payload)
+    },
+    removeAcs12Corrosionstats(state, action: PayloadAction<number>) {
+      state.stats.acs12corrosion = state.stats.acs12corrosion.filter((elem) => elem.id !== action.payload)
     },
     addAcs12CorrosionSimulation(state, action: PayloadAction<{ id: number, value: ISimulationReport }>,) {
       const item = state.stats.acs12corrosion.find(elem => elem.id === action.payload.id)
