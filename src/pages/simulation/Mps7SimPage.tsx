@@ -8,7 +8,7 @@ import { CombinedDpsForm } from '../../components/combined-dps-form/CombinedDpsF
 
 export function Mps7SimPage() {
   const { mps7 } = useAppSelector(state => state.simulationReducer.stats)
-  const { addMps7Stats, addMps7Simulation, removeMps7stats } = simulationSlice.actions
+  const { addMps7Stats, addMps7Simulation, removeMps7Stats } = simulationSlice.actions
 
   const initValues: IWeaponStats = {
     id: Date.now(),
@@ -34,7 +34,7 @@ export function Mps7SimPage() {
         {mps7.map(stats => <WeaponDpsCard
           stats={stats}
           addSimulationAction={addMps7Simulation}
-          removeBuildAction={removeMps7stats}
+          removeBuildAction={removeMps7Stats}
           getDps={getMps7Dps}
           key={stats.id}
         />)}

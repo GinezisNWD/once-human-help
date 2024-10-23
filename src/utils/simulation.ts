@@ -1,4 +1,4 @@
-import { advancedShot, IAcs12CorrosionStats, ISimulationReport, IWeaponStats } from "../models/IStats";
+import { advancedShot, IAcs12CorrosionStats, IMps7OuterSpaceStats, ISimulationReport, ISocrOutsiderStats, IWeaponStats } from "../models/IStats";
 
 export function isCrit(critRate: number) {
   return critRate >= Math.random() * 100
@@ -92,6 +92,57 @@ export function getAcs12CorrosionDps(stats: IAcs12CorrosionStats) {
   console.log(result);
   return result
 }
+
+export function getMps7OuterSpaceDps(stats: IMps7OuterSpaceStats) {
+  const copyStats = structuredClone(stats)
+  const result: ISimulationReport = {
+    totalDamage: 0,
+    weaponDamage: 0,
+    detailedDpsCheck: []
+  }
+
+  for (let i = 0; i < copyStats.magazineCapacity; i++) {
+    const hit = {
+      damage: 0,
+      isCrit: isCrit(copyStats.critRate),
+      isWeakspot: isWeakspot(copyStats.weakspotHitRate),
+    }
+    hit.damage = getDamagePerHit(copyStats, hit.isCrit, hit.isWeakspot)
+    result.detailedDpsCheck.push(hit)
+  }
+
+  result.weaponDamage = result.detailedDpsCheck.reduce((acc, elem) => acc + elem.damage, 0)
+
+  result.totalDamage = result.weaponDamage
+
+  return result
+}
+
+export function getSocrOutsiderDps(stats: ISocrOutsiderStats) {
+  const copyStats = structuredClone(stats)
+  const result: ISimulationReport = {
+    totalDamage: 0,
+    weaponDamage: 0,
+    detailedDpsCheck: []
+  }
+
+  for (let i = 0; i < copyStats.magazineCapacity; i++) {
+    const hit = {
+      damage: 0,
+      isCrit: isCrit(copyStats.critRate),
+      isWeakspot: isWeakspot(copyStats.weakspotHitRate),
+    }
+    hit.damage = getDamagePerHit(copyStats, hit.isCrit, hit.isWeakspot)
+    result.detailedDpsCheck.push(hit)
+  }
+
+  result.weaponDamage = result.detailedDpsCheck.reduce((acc, elem) => acc + elem.damage, 0)
+
+  result.totalDamage = result.weaponDamage
+
+  return result
+}
+
 
 
 export function getDamagePerHit(stats: IWeaponStats, isCrit: boolean, isWeakspot: boolean) {

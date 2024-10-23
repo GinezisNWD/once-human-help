@@ -51,5 +51,12 @@ export interface IAcs12CorrosionStats extends IElementalStats {
   powerSurgeCritDamage?: number;
   damageFactor?: number;
 }
+export interface IMps7OuterSpaceStats extends IElementalStats {
+  triggerChance?: number;
+}
 
-export type combinedStats = IWeaponStats | IElementalStats | IAcs12CorrosionStats
+export interface ISocrOutsiderStats extends IElementalStats {
+  triggerChance?: number;
+}
+
+export type combinedStats = IWeaponStats | IElementalStats | IAcs12CorrosionStats | IMps7OuterSpaceStats | ISocrOutsiderStats

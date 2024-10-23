@@ -7,8 +7,8 @@ import { simulationSlice } from '../../store/reducers/simulationSlice'
 import { WeaponDpsCardList } from '../../components/weapon-dps-card-list/WeaponDpsCardList'
 
 export function Acs12CorrosionSimPage() {
-  const { acs12corrosion } = useAppSelector(state => state.simulationReducer.stats)
-  const { addAcs12CorrosionStats, addAcs12CorrosionSimulation, removeAcs12Corrosionstats } = simulationSlice.actions
+  const { acs12Corrosion } = useAppSelector(state => state.simulationReducer.stats)
+  const { addAcs12CorrosionStats, addAcs12CorrosionSimulation, removeAcs12CorrosionStats } = simulationSlice.actions
 
   const initValues: IAcs12CorrosionStats = {
     id: Date.now(),
@@ -24,16 +24,17 @@ export function Acs12CorrosionSimPage() {
     normalEnemiesDamage: 0,
     damageResistance: 95,
 
-    psiIntensity: 121,
+    psiIntensity: 125,
     psiMultiplier: 50,
     elementalDamage: 0,
     statusDamage: 0,
-    // указан на пухе
-    damageFactor: 15,
 
     triggerChance: 70,
     powerSurgeCritRate: 15,
     powerSurgeCritDamage: 15,
+
+    // уникальный для acs12, указан на пухе
+    damageFactor: 15,
 
     simulations: [],
   }
@@ -44,10 +45,10 @@ export function Acs12CorrosionSimPage() {
       <CombinedDpsForm isElemental={true} initValues={initValues} addStats={addAcs12CorrosionStats} />
 
       <WeaponDpsCardList>
-        {acs12corrosion.map(stats => <WeaponDpsCard
+        {acs12Corrosion.map(stats => <WeaponDpsCard
           stats={stats}
           addSimulationAction={addAcs12CorrosionSimulation}
-          removeBuildAction={removeAcs12Corrosionstats}
+          removeBuildAction={removeAcs12CorrosionStats}
           getDps={getAcs12CorrosionDps}
           key={stats.id}
         />)}
